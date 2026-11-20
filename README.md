@@ -2,7 +2,7 @@
 
 <img src="docs/simge.png" width="96">
 
-Mac için sade ses oynatıcı. Sesi yavaşlatır ya da hızlandırır; ses tonu bozulmaz.
+Mac için sade ses oynatıcı. macOS 26 Liquid Glass tasarım diliyle. Sesi yavaşlatır ya da hızlandırır; ses tonu bozulmaz.
 
 - **Hız** 0,25× – 2×, 0,05 adımlarla (sürgü, − / + düğmeleri ya da listeden 0,50 · 0,55 · … · 1,50 · 1,75 · 2,00)
 - **Ton** −12 / +12 yarım ses, hızdan bağımsız
@@ -11,7 +11,7 @@ Mac için sade ses oynatıcı. Sesi yavaşlatır ya da hızlandırır; ses tonu 
 - Sürükle-bırak, Finder'da "Birlikte Aç", klavyedeki medya tuşları
 - mp3, m4a/aac, wav, aiff, flac, caf
 
-<img src="docs/acik.png" width="440"> <img src="docs/koyu.png" width="440">
+<img src="docs/koyu.png" width="440"> <img src="docs/bos.png" width="440">
 
 ## Kısayollar
 
@@ -33,7 +33,7 @@ Sağ alttaki süre, **bu hızda** kalan süreyi gösterir; tıklayınca toplam s
 bash kurulum/kur.sh
 ```
 
-Derler, simgeyi çizer, `/Applications/Tını.app` olarak kurar ve açar. macOS 14 ve üstü, Xcode gerekmez (Komut Satırı Araçları yeter).
+Derler, simgeyi çizer, `/Applications/Tını.app` olarak kurar ve açar. macOS 26 (Tahoe) ve üstü, Xcode gerekmez (Komut Satırı Araçları yeter).
 
 ---
 

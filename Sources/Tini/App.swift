@@ -10,7 +10,9 @@ struct TiniApp: App {
             ContentView()
                 .environment(Player.shared)
         }
+        .windowStyle(.hiddenTitleBar)
         .windowResizability(.contentSize)
+        .windowBackgroundDragBehavior(.enabled)
         .commands {
             CommandGroup(replacing: .appInfo) {
                 Button("Tını Hakkında") { showAbout() }
