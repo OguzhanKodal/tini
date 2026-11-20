@@ -43,7 +43,7 @@ final class Player {
     static let skip: Double = 5
 
     var loopActive: Bool { loopA != nil && loopB != nil }
-    var hasFile: Bool { file != nil }
+    var hasFile: Bool { url != nil }
 
     @ObservationIgnored private let engine = AVAudioEngine()
     @ObservationIgnored private let node = AVAudioPlayerNode()
