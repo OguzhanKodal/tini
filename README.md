@@ -4,7 +4,7 @@
 
 Mac için sade ses oynatıcı. Sesi yavaşlatır ya da hızlandırır; ses tonu bozulmaz.
 
-- **Hız** 0,25× – 2× (sürgü veya hazır değerler: 0,5 · 0,75 · 0,9 · 1 · 1,25 · 1,5 · 2)
+- **Hız** 0,25× – 2×, 0,05 adımlarla (sürgü, − / + düğmeleri ya da listeden 0,50 · 0,55 · … · 1,50 · 1,75 · 2,00)
 - **Ton** −12 / +12 yarım ses, hızdan bağımsız
 - **A–B döngüsü**: bir bölümü durmadan tekrar et (dil öğrenmek, şarkı çalışmak için)
 - Dalga biçimi üzerinde tıklayıp sürükleyerek atlama

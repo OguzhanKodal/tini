@@ -39,7 +39,9 @@ final class Player {
     }
 
     static let rateRange = 0.25...2.0
-    static let ratePresets: [Double] = [0.5, 0.75, 0.9, 1, 1.25, 1.5, 2]
+    /// 0,50 – 1,50 arası her 0,05, ardından 1,75 ve 2.
+    static let ratePresets: [Double] = (10...30).map { Double($0 * 5) / 100 } + [1.75, 2]
+    static let rateStep = 0.05
     static let skip: Double = 5
 
     var loopActive: Bool { loopA != nil && loopB != nil }

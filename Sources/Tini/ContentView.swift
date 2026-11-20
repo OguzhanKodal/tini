@@ -119,23 +119,34 @@ struct ContentView: View {
             Slider(value: rate, in: Player.rateRange)
                 .controlSize(.small)
             Image(systemName: "hare").foregroundStyle(.secondary)
-            Menu {
-                ForEach(Player.ratePresets, id: \.self) { r in
-                    Button(rateString(r)) { player.rate = r }
+            HStack(spacing: 0) {
+                IconButton(symbol: "minus", size: 10) { player.nudgeRate(-Player.rateStep) }
+                    .help("0,05 yavaşlat (↓)")
+                Menu {
+                    ForEach(Player.ratePresets, id: \.self) { r in
+                        Toggle(rateString(r), isOn: Binding(
+                            get: { abs(player.rate - r) < 0.001 },
+                            set: { _ in player.rate = r }))
+                        if r == 1 || r == 1.5 { Divider() }
+                    }
+                } label: {
+                    Text(rateString(player.rate))
+                        .font(.callout.monospacedDigit().weight(.semibold))
+                        .foregroundStyle(player.rate == 1 ? AnyShapeStyle(.primary) : AnyShapeStyle(accent))
+                        .frame(width: 50)
+                        .padding(.vertical, 4)
+                        .contentShape(Rectangle())
                 }
-            } label: {
-                Text(rateString(player.rate))
-                    .font(.callout.monospacedDigit().weight(.semibold))
-                    .foregroundStyle(player.rate == 1 ? AnyShapeStyle(.primary) : AnyShapeStyle(accent))
-                    .frame(width: 52)
-                    .padding(.vertical, 4)
-                    .background(Capsule().fill(.quaternary.opacity(0.6)))
+                .menuStyle(.button)
+                .buttonStyle(.plain)
+                .menuIndicator(.hidden)
+                .fixedSize()
+                IconButton(symbol: "plus", size: 10) { player.nudgeRate(Player.rateStep) }
+                    .help("0,05 hızlandır (↑)")
             }
-            .menuStyle(.button)
-            .buttonStyle(.plain)
-            .menuIndicator(.hidden)
-            .fixedSize()
-            .help("Hız (↑ ↓, 0 = normal)")
+            .padding(.horizontal, 4)
+            .background(Capsule().fill(.quaternary.opacity(0.6)))
+            .help("Hız: değere tıkla → liste (0 = normal hız)")
         }
     }
 
@@ -277,8 +288,5 @@ func timeString(_ t: Double) -> String {
 }
 
 func rateString(_ r: Double) -> String {
-    var s = String(format: "%.2f", r)
-    while s.hasSuffix("0") { s.removeLast() }
-    if s.hasSuffix(".") { s.removeLast() }
-    return s.replacingOccurrences(of: ".", with: ",") + "×"
+    String(format: "%.2f", r).replacingOccurrences(of: ".", with: ",") + "×"
 }
